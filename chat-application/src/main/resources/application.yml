@@ -1,0 +1,26 @@
+spring:
+ datasource:
+     url: jdbc:mysql://localhost:3306/ebook_chat
+     username: springuser
+     password: ThePassword
+ jpa:
+    show-sql: true
+    hibernate:
+        ddl-auto: update
+ redis:
+    database: 0
+    host: localhost
+    port: 6379
+    timeout: 60000
+ data:
+    cassandra:
+      contact-points: 127.0.0.1
+      port: 9042
+      keyspace-name: ebook_chat
+      schema-action: NONE
+      local-datacenter: datacenter1
+    redis:
+      repositories:
+          enabled: true
+ 
+ 
