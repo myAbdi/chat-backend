@@ -14,7 +14,7 @@ public class WebSocketConfigurer implements WebSocketMessageBrokerConfigurer {
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		
-		registry.addEndpoint("/websocketApp").withSockJS();
+		registry.addEndpoint("/ws").withSockJS();
 	}
 	
 	@Override
@@ -26,6 +26,6 @@ public class WebSocketConfigurer implements WebSocketMessageBrokerConfigurer {
 			.setRelayPort(61613)
 			.setClientLogin("guest")
 			.setClientPasscode("guest");
-		registry.setApplicationDestinationPrefixes("/app");
+		registry.setApplicationDestinationPrefixes("/chatroom");
 	}
 }

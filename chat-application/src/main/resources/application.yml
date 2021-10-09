@@ -22,5 +22,11 @@ spring:
     redis:
       repositories:
           enabled: true
- 
- 
+logging:
+    level:
+      org:
+        springframework:
+            boot:
+              autoconfigure:
+                  security: INFO
+
