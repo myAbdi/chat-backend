@@ -13,7 +13,7 @@ public interface ChatRoomService {
 	
 	ChatRoom save(ChatRoom chatRoom);
 	void delete(ChatRoom chatRoom);
-	Optional<ChatRoom> findById(String id);
+	ChatRoom findById(String id);
 	ChatRoom join(ChatRoomUser joiningUser, ChatRoom chatRoom);
 	ChatRoom leave(ChatRoomUser leavingUser, ChatRoom chatRoom);
 	Iterable<ChatRoom> findAll();

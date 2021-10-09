@@ -1,13 +1,18 @@
 package com.abdi.spring.chat.repositories;
 
-import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Date;
+import java.util.List;
 
-import com.abdi.spring.chat.entities.Key;
+import org.springframework.data.cassandra.repository.AllowFiltering;
+import org.springframework.data.cassandra.repository.MapIdCassandraRepository;
+import org.springframework.stereotype.Repository;
 import com.abdi.spring.chat.entities.Message;
 
 @Repository
-public interface MessageRepository extends CassandraRepository <Message, Key> {
-
-	//List<Message> findByKeyUsernameAndKeyChatRoomId(String username, String chatRoomId);
+public interface MessageRepository extends MapIdCassandraRepository<Message> {
+	
+	List<Message> findByUsernameAndChatRoomId(String username, String chatRoomId);
+	
+	@AllowFiltering
+	List<Message> findByChatRoomIdAndDateAfter(String chatRoomId, Date date); 
 }

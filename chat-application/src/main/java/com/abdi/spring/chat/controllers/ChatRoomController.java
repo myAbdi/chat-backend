@@ -25,11 +25,12 @@ public class ChatRoomController {
 	
 	@Autowired
 	ChatRoomService chatRoomService;
+	
 	@Autowired
 	ChatRoomRepository chatRoomRepository;
 	
 	@PostMapping("/chatroom")
-	public ResponseEntity<ChatRoom> saveChatRoom(@RequestBody ChatRoom chatRoom) {
+	public ResponseEntity<ChatRoom> createChatRoom(@RequestBody ChatRoom chatRoom) {
 		
 		ChatRoom savedChatRoom = chatRoomService.save(chatRoom);
 		
@@ -42,7 +43,7 @@ public class ChatRoomController {
 		return new ResponseEntity<>(chatrooms, HttpStatus.OK);
 	}
 	
-	@GetMapping("/getchat/{id}")
+	/*@GetMapping("/getchat/{id}")
 	public ResponseEntity<Optional<ChatRoom>> findChatRoom(@PathVariable String id){
 		Optional<ChatRoom> chatroom = chatRoomService.findById(id);
 		if(chatroom.isPresent()) {
@@ -51,8 +52,9 @@ public class ChatRoomController {
 				
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
-	}
-	@PutMapping("/adduser/{id}")
+	}*/
+	
+	/*@PutMapping("/adduser/{id}")
 	public ResponseEntity<ChatRoom> addUserToChatroom(@PathVariable String id, @RequestBody ChatRoomUser user){
 		Optional<ChatRoom> chatroom = chatRoomRepository.findById(id);
 		if(chatroom.isPresent()) {
@@ -63,9 +65,9 @@ public class ChatRoomController {
 				
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
-	}
+	}*/
 	
-	@PutMapping("/rmuser/{id}")
+	/*@PutMapping("/rmuser/{id}")
 	public ResponseEntity<ChatRoom> removeUserFromChatroom(@PathVariable String id, @RequestBody ChatRoomUser user){
 		Optional<ChatRoom> chatroom = chatRoomRepository.findById(id);
 		if(chatroom.isPresent()) {
@@ -76,7 +78,7 @@ public class ChatRoomController {
 				
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
-	}
+	}*/
 	
 	@DeleteMapping("chatroom/{id}")
 	public ResponseEntity<ChatRoom> removeChatroom(@PathVariable String id){

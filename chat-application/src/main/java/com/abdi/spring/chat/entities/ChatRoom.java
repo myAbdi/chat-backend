@@ -10,10 +10,12 @@ import org.springframework.data.redis.core.RedisHash;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @RedisHash("chatroom")
 public class ChatRoom implements Serializable {
 	
